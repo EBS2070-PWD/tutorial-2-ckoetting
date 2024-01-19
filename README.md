@@ -64,11 +64,32 @@ colleagues (via discussion board) and then with the tutor.
 1.  Research how Python handles and catches exceptions, and exception
     propagation.
 
+    Python handles exceptions using the try...except block, which allows for handling different types of exceptions. The try block contains the code      that may cause an exception, and the except block is used to catch and handle the exception if it occurs. Multiple except blocks can be used to       handle different types of exceptions differently. Additionally, a single except clause can handle multiple exceptions as a parenthesized tuple.
+
+   Exception propagation in Python involves the transfer of an exception from the point where it occurs to the point where it is caught. If an           exception occurs in a function, and the function does not handle it, the exception propagates to the caller function. This propagation continues      up the call stack until a suitable handler is found. If no handler is found, Python prints an error message and a traceback detailing the sequence    of function calls that led to the exception
+
 2.  Research the difference between "Easier to ask for forgiveness than
     permission" and "Look before you leap" and when in idiomatic python
     you should use `try` and `if` for flow control.
 
-3.  Research examples of pythonic code.
+    EAFP: This is a typical Python approach where it's considered normal to assume the existence of valid keys or attributes and catch exceptions if      the assumption proves false. This coding style directly tries an operation and catches any exceptions that might occur. It's more Pythonic and        often leads to cleaner and more readable code. EAFP is preferable when exceptions are expected to be rare or when the cost of checking                preconditions is high.
+    
+    LBYL: This approach involves explicitly testing for pre-conditions before making calls or lookups. This coding style checks if conditions are         suitable for an operation before it is attempted. While common in languages like C, LBYL can lead to more cluttered code in Python, especially in     scenarios where race conditions may occur, for example, checking if a file exists before opening it.
+
+    In Python, the use of try (EAFP) and if (LBYL) for flow control depends on the expected frequency of exceptions, performance considerations, and      readability of the code​
+
+4.  Research examples of pythonic code.
+
+    Pythonic code refers to code that follows Python's philosophy and idiomatic practices. Here are a few examples:
+    Using List Comprehensions: Instead of creating a list using a for loop, Pythonic code often uses list comprehensions for brevity and readability.
+        squares = [x**2 for x in range(10)]
+    
+    Generator Expressions: For larger data sets, generator expressions are used for memory efficiency.
+        sum_of_squares = sum(x**2 for x in range(10))
+    
+    Using with Statement for Resource Management: This ensures that resources are properly managed (like file opening and closing) without explicit       clean-up code.
+        with open('file.txt', 'r') as file:
+            contents = file.read()
 
 ### Development and programming in Python
 
